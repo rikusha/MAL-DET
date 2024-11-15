@@ -1,20 +1,33 @@
 import streamlit as st
-import pandas as pd
+import requests
 import matplotlib.pyplot as plt
 import zipfile
-import requests
+import pandas as pd
 
-# Replace with the actual download URL for your ZIP file
 github_url = "https://github.com/rikusha/MAL-DET/archive/refs/heads/main.zip"
 
-# Download the ZIP file
-response = requests.get(github_url)
-with open("temp.zip", "wb") as f:
-    f.write(response.content)
+def download_and_extract_data(url, filename):
+    response = requests.get(url)
+    if response.status_code == 200:
+        with open("temp.zip", "wb") as f:
+            f.write(response.content)
 
-# Extract the CSV file
-with zipfile.ZipFile("temp.zip", 'r') as zip_ref:
-    zip_ref.extract('MalwareData.csv')
+        with zipfile.ZipFile("temp.zip", 'r') as zip_ref:
+            try:
+                zip_ref.extract(filename)
+                return True
+            except KeyError:
+                st.error(f"File '{filename}' not found in the ZIP archive.")
+                return False
+    else:
+        st.error(f"Failed to download data. Error code: {response.status_code}")
+        return False
+
+if download_and_extract_data(github_url, "MalwareData.csv"):
+    malData = pd.read_csv('MalwareData.csv', sep='|')
+    # ... rest of your code using malData ...
+else:
+    st.error("Data extraction failed. Please check the ZIP file and try again.")
 
 # Read the CSV file
 malData = pd.read_csv('MalwareData.csv', sep='|')
