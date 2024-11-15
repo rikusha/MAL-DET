@@ -1,6 +1,23 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import zipfile
+import requests
+
+github_url = "https://github.com/rikusha/MAL-DET/blob/main/MalwareData.zip"
+
+response = requests.get(github_url)
+with open("temp.zip", "wb") as f:
+    f.write(response.content)
+
+
+with zipfile.ZipFile("temp.zip", 'r') as zip_ref:
+    zip_ref.extract('MalwareData.csv')
+
+
+# Read the CSV file
+malData = pd.read_csv('MalwareData.csv', sep='|')
+
 
 # Sample DataFrame (replace with your actual data)
 malData = pd.read_csv("MalwareData.csv",sep = "|" )
