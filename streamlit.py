@@ -4,13 +4,13 @@ import matplotlib.pyplot as plt
 
 # Sample DataFrame (replace with your actual data)
 malData = pd.read_csv("MalwareData.csv",sep = "|" )
-legit = malData[0:41323].drop("legitimate", axis=1) 
-mal = malData[41323:].drop("legitimate", axis=1) 
+legit = malData[malData["legitimate"] == 1]
+mal = malData[malData["legitimate"] == 0]
 
-df = pd.DataFrame(data)
+df = pd.DataFrame(malData)
 
 # Calculate accuracy (replace with your actual accuracy)
-accuracy = 0.95
+accuracy = 99.45
 
 # Create the dashboard
 st.title("Malware Detection Dashboard")
