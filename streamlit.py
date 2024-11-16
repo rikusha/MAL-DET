@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 # Sample DataFrame (replace with your actual data)
 malData = pd.read_csv("MalwareData.csv",sep = "|" )
-legit = malData[0:41323].drop(["legitimate"] ,axis=1)
-mal = malData[41323::].drop(["legitimate"],axis=1)
+legit = malData[0:41323].drop("legitimate", axis=1) 
+mal = malData[41323:].drop("legitimate", axis=1) 
 
 df = pd.DataFrame(data)
 
