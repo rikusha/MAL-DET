@@ -33,7 +33,7 @@ st.dataframe(df[df['legitimate'] == 0])
 # Create a pie chart
 fig, ax = plt.subplots()
 labels = ['Non-Infected', 'Infected']
-sizes = [df['label'].value_counts()[0], df['label'].value_counts()[1]]
+sizes = [df['legitimate'].value_counts()[0], df['legitimate'].value_counts()[1]]
 ax.pie(sizes, labels=labels, autopct='%1.1f%%')
 ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 st.pyplot(fig)
