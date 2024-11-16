@@ -24,11 +24,11 @@ st.progress(accuracy)
 
 # Display infected files
 st.header("Infected Files")
-st.dataframe(df[df['label'] == 1])
+st.dataframe(df[df['legitimate'] == 1])
 
 # Display non-infected files
 st.header("Non-Infected Files")
-st.dataframe(df[df['label'] == 0])
+st.dataframe(df[df['legitimate'] == 0])
 
 # Create a pie chart
 fig, ax = plt.subplots()
