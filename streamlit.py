@@ -3,14 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Sample DataFrame (replace with your actual data)
-malData = pd.read_csv("MalwareData.csv",sep = "|" )
+malData = pd.read_csv("MalwareData.csv",sep = "," )
 legit = malData[malData["legitimate"] == 1]
 mal = malData[malData["legitimate"] == 0]
 
 df = pd.DataFrame(malData)
 
 #to check incase error in reading data
-print(df)
+print(malData.head())
 
 # Calculate accuracy (replace with your actual accuracy)
 accuracy = 99.45
