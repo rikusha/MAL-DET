@@ -9,6 +9,9 @@ mal = malData[malData["legitimate"] == 0]
 
 df = pd.DataFrame(malData)
 
+#to check incase error in reading data
+print(df)
+
 # Calculate accuracy (replace with your actual accuracy)
 accuracy = 99.45
 
