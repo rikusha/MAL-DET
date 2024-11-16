@@ -13,7 +13,7 @@ df = pd.DataFrame(malData)
 print(malData.head())
 
 # Calculate accuracy (replace with your actual accuracy)
-accuracy = 99.45
+accuracy = 0.99
 
 # Create the dashboard
 st.title("Malware Detection Dashboard")
