@@ -22,13 +22,18 @@ st.title("Malware Detection Dashboard")
 st.header("Model Accuracy")
 st.progress(accuracy)
 
-# Display infected files
-st.header("Infected Files")
-st.dataframe(df[df['legitimate'] == 1])
+# Create two columns
+col1, col2 = st.columns(2)
 
-# Display non-infected files
-st.header("Non-Infected Files")
-st.dataframe(df[df['legitimate'] == 0])
+# Display infected files in the first column
+with col1:
+    st.header("Infected Files")
+    st.dataframe(df[df['legitimate'] == 1])
+
+# Display non-infected files in the second column
+with col2:
+    st.header("Non-Infected Files")
+    st.dataframe(df[df['legitimate'] == 0])
 
 # Create a pie chart
 fig, ax = plt.subplots()
