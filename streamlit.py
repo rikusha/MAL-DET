@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Set page configuration
+st.set_page_config(layout="wide")
+
 # Sample DataFrame (replace with your actual data)
 malData = pd.read_csv("MalwareData.csv",sep = "," )
 legit = malData[malData["legitimate"] == 1]
