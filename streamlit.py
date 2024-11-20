@@ -41,7 +41,7 @@ with col2:
 
 #model prediction: 
 # Load your pre-trained model
-model = load_model("your_model.pkl")  # Replace with your model loading method
+model = ExtraTreesClassifier()  
 
 def predict(data):
   # Preprocess the data (adapt to your specific preprocessing steps)
@@ -75,9 +75,18 @@ with col2:
     if uploaded_file is not None:
         # Read the uploaded file
         data = pd.read_csv(uploaded_file)
+    model = ExtraTreesClassifier()  
 
+    def predict(data):
+      # Preprocess the data (adapt to your specific preprocessing steps)
+      preprocessed_data = preprocess_data(data)
     
-  if prediction == 1:
-    st.success("The file is legitimate.")
-  else:
-    st.error("The file is malicious.")
+      # Make a prediction
+      prediction = model.predict(preprocessed_data)
+    
+      return prediction
+        
+      if prediction == 1:
+        st.success("The file is legitimate.")
+      else:
+        st.error("The file is malicious.")
