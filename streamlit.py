@@ -39,13 +39,14 @@ with col2:
     st.dataframe(df[df['legitimate'] == 0])
 
 # Create a pie chart
-fig, ax = plt.subplots(figsize = (1,1))
+fig, ax = plt.subplots(figsize = (1,1), dpi = 300)
 fig.patch.set_facecolor('black')
 labels = ['Non-Infected', 'Infected']
 colors = ['#85586F', '#B7D3DF']
 font = {'family': 'serif',
         'color':  'white',
          'size': 1}
+
 sizes = [df['legitimate'].value_counts()[0], df['legitimate'].value_counts()[1]]
 ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, textprops=font)
 ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
