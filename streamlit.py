@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import sklearn as sk
-from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.ensemble import RandomForestClassifier 
+
 # Set page configuration
 st.set_page_config(layout="wide")
 
@@ -27,7 +25,6 @@ st.title("Malware Detection Dashboard")
 st.header("Model Accuracy")
 st.progress(accuracy)
 
-
 # Create two columns
 col1, col2 = st.columns(2)
 
@@ -41,19 +38,6 @@ with col2:
     st.header("Non-Infected Files")
     st.dataframe(df[df['legitimate'] == 0])
 
-#model prediction: 
-# Load your pre-trained model
-model = RandomForestClassifier()  
-
-def predict(data):
-  # Preprocess the data (adapt to your specific preprocessing steps)
-  preprocessed_data = preprocess_data(data)
-
-  # Make a prediction
-  prediction = model.predict(preprocessed_data)
-
-  return prediction
-
 col1, col2 = st.columns([2,1])
 
 with col1:
@@ -64,7 +48,7 @@ with col1:
     colors = ['#85586F', '#B7D3DF']
     font = {'family': 'serif',
             'color':  'white',
-             'size': 8}
+             'size': 3}
     
     sizes = [df['legitimate'].value_counts()[0], df['legitimate'].value_counts()[1]]
     ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, textprops=font)
@@ -72,23 +56,4 @@ with col1:
     st.pyplot(fig)
 
 with col2: 
-    uploaded_file = st.file_uploader("Choose a file")
-
-    if uploaded_file is not None:
-        # Read the uploaded file
-        data = pd.read_csv(uploaded_file)
-    model = ExtraTreesClassifier()  
-
-    def predict(data):
-      # Preprocess the data (adapt to your specific preprocessing steps)
-      preprocessed_data = preprocess_data(data)
     
-      # Make a prediction
-      prediction = model.predict(preprocessed_data)
-    
-      return prediction
-        
-      if prediction == 1:
-        st.success("The file is legitimate.")
-      else:
-        st.error("The file is malicious.")
