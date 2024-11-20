@@ -38,6 +38,8 @@ with col2:
     st.header("Non-Infected Files")
     st.dataframe(df[df['legitimate'] == 0])
 
+col1, col2 = st.columns([2,1])
+with col1:
 # Create a pie chart
 plt.figure(figsize=(1, 1), dpi=300)  #figure size and dpi
 fig, ax = plt.subplots()
@@ -46,9 +48,12 @@ labels = ['Non-Infected', 'Infected']
 colors = ['#85586F', '#B7D3DF']
 font = {'family': 'serif',
         'color':  'white',
-         'size': 1}
+         'size': 3}
 
 sizes = [df['legitimate'].value_counts()[0], df['legitimate'].value_counts()[1]]
 ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, textprops=font)
 ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 st.pyplot(fig)
+
+with col2: 
+    print("hello")
