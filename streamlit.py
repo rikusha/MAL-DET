@@ -39,7 +39,8 @@ with col2:
     st.dataframe(df[df['legitimate'] == 0])
 
 # Create a pie chart
-fig, ax = plt.subplots(figsize = (1,1), dpi = 300)
+plt.figure(figsize=(1, 1), dpi=300)  #figure size and dpi
+fig, ax = plt.subplots()
 fig.patch.set_facecolor('black')
 labels = ['Non-Infected', 'Infected']
 colors = ['#85586F', '#B7D3DF']
