@@ -25,6 +25,7 @@ st.title("Malware Detection Dashboard")
 st.header("Model Accuracy")
 st.progress(accuracy)
 
+
 # Create two columns
 col1, col2 = st.columns(2)
 
@@ -37,6 +38,19 @@ with col1:
 with col2:
     st.header("Non-Infected Files")
     st.dataframe(df[df['legitimate'] == 0])
+
+#model prediction: 
+# Load your pre-trained model
+model = load_model("your_model.pkl")  # Replace with your model loading method
+
+def predict(data):
+  # Preprocess the data (adapt to your specific preprocessing steps)
+  preprocessed_data = preprocess_data(data)
+
+  # Make a prediction
+  prediction = model.predict(preprocessed_data)
+
+  return prediction
 
 col1, col2 = st.columns([2,1])
 
@@ -56,4 +70,14 @@ with col1:
     st.pyplot(fig)
 
 with col2: 
-    print("hello")
+    uploaded_file = st.file_uploader("Choose a file")
+
+    if uploaded_file is not None:
+        # Read the uploaded file
+        data = pd.read_csv(uploaded_file)
+
+    
+  if prediction == 1:
+    st.success("The file is legitimate.")
+  else:
+    st.error("The file is malicious.")
