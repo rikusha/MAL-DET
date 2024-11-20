@@ -45,7 +45,7 @@ labels = ['Non-Infected', 'Infected']
 colors = ['#85586F', '#B7D3DF']
 font = {'family': 'serif',
         'color':  'white',
-         'size': 4}
+         'size': 1}
 sizes = [df['legitimate'].value_counts()[0], df['legitimate'].value_counts()[1]]
 ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, textprops=font)
 ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
