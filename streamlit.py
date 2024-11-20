@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import RandomForestClassifier 
 # Set page configuration
 st.set_page_config(layout="wide")
 
@@ -41,7 +42,7 @@ with col2:
 
 #model prediction: 
 # Load your pre-trained model
-model = ExtraTreesClassifier()  
+model = RandomForestClassifier()  
 
 def predict(data):
   # Preprocess the data (adapt to your specific preprocessing steps)
