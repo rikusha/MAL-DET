@@ -63,7 +63,7 @@ with col1:
                 mime='text/csv'
             )
     
-            with open('RandomForest.pkl', 'rb') as f:
+            with open('malware_classifier.pkl', 'rb') as f:
                 model = pickle.load(f)
     
             # Make predictions
