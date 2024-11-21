@@ -70,7 +70,7 @@ def main():
     st.write(predictions)
     
     if __name__ == '__main__':
-                main()
+        main()
 
 fig, ax = plt.subplots(figsize=(5, 5))  # Adjust figure size
 labels = ['Non-Infected', 'Infected']
