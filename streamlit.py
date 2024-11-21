@@ -38,14 +38,14 @@ with col2:
     st.header("Non-Infected Files")
     st.dataframe(df[df['legitimate'] == 0])
 
-plt.figure(figsize=(0.75, 0.75), dpi=300)  #figure size and dpi
+plt.figure(figsize=(2,2), dpi=300)  #figure size and dpi
 fig, ax = plt.subplots()
 fig.patch.set_facecolor('black')
 labels = ['Non-Infected', 'Infected']
 colors = ['#85586F', '#B7D3DF']
 font = {'family': 'serif',
             'color':  'white',
-             'size': 3}
+             'size': 5}
     
 sizes = [df['legitimate'].value_counts()[0], df['legitimate'].value_counts()[1]]
 ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, textprops=font)
