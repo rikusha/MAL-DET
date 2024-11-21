@@ -63,13 +63,13 @@ def main():
           model = joblib.load(f)
     
             # Make predictions
-        predictions = model.predict(df)
+    predictions = model.predict(df)
     
             # Display the predictions
-        st.write("Predictions:")
-        st.write(predictions)
+    st.write("Predictions:")
+    st.write(predictions)
     
-            if __name__ == '__main__':
+    if __name__ == '__main__':
                 main()
 
 fig, ax = plt.subplots(figsize=(5, 5))  # Adjust figure size
