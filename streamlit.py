@@ -42,9 +42,9 @@ with col2:
     st.header("Non-Infected Files")
     st.dataframe(df[df['legitimate'] == 0])
 
-col1, col2 = st.columns(2)
 
-with col1:
+
+
     def main():
         St.title("Virus Detector")
         uploaded_file = st.file_uploader("Choose a file")
@@ -76,7 +76,6 @@ with col1:
             if __name__ == '__main__':
                 main()
 
-with col2:
     fig, ax = plt.subplots(figsize=(5, 5))  # Adjust figure size
     labels = ['Non-Infected', 'Infected']
     fig.patch.set_facecolor('black')
