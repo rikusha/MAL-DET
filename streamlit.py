@@ -42,7 +42,7 @@ with col2:
 
 
 def main():
-    St.title("Virus Detector")
+    st.title("Virus Detector")
     uploaded_file = st.file_uploader("Choose a file")
 
     if uploaded_file is not None:
@@ -69,8 +69,8 @@ def main():
     st.write("Predictions:")
     st.write(predictions)
     
-if __name__ == '__main__':
-    main()
+    if __name__ == '__main__':
+        main()
 
 fig, ax = plt.subplots(figsize=(5, 5))  # Adjust figure size
 labels = ['Non-Infected', 'Infected']
