@@ -43,35 +43,33 @@ with col2:
     st.dataframe(df[df['legitimate'] == 0])
 
 
+def main():
+    St.title("Virus Detector")
+    uploaded_file = st.file_uploader("Choose a file")
 
-
-    def main():
-        St.title("Virus Detector")
-        uploaded_file = st.file_uploader("Choose a file")
-
-        if uploaded_file is not None:
-            df = pd.read_csv(uploaded_file)
+    if uploaded_file is not None:
+         df = pd.read_csv(uploaded_file)
 
             # Convert the DataFrame to CSV
-            csv_data = df.to_csv(index=False)
+         csv_data = df.to_csv(index=False)
     
             # Display the converted CSV data
-            st.download_button(
-                label="Download CSV",
-                data=csv_data,
-                file_name="converted_file.csv",
-                mime='text/csv'
+         st.download_button(
+              label="Download CSV",
+              data=csv_data,
+              file_name="converted_file.csv",
+              mime='text/csv'
             )
     
-            with open('malware_classifier.pkl', 'rb') as f:
-                model = pickle.load(f)
+        with open('malware_classifier.pkl', 'rb') as f:
+        model = pickle.load(f)
     
             # Make predictions
-            predictions = model.predict(df)
+        predictions = model.predict(df)
     
             # Display the predictions
-            st.write("Predictions:")
-            st.write(predictions)
+        st.write("Predictions:")
+        st.write(predictions)
     
             if __name__ == '__main__':
                 main()
