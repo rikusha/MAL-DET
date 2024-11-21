@@ -44,7 +44,7 @@ with col1:
     print("   ")
 
 with col2:
-    fig, ax = plt.subplots(figsize=(5, 3))  # Adjust figure size
+    fig, ax = plt.subplots(figsize=(5, 5))  # Adjust figure size
     labels = ['Non-Infected', 'Infected']
     fig.patch.set_facecolor('black')
     labels = ['Non-Infected', 'Infected']
