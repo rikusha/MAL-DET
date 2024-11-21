@@ -41,7 +41,7 @@ with col2:
 col1, col2 = st.columns([2,1])
 
 with col1:
-    plt.figure(figsize=(1, 1), dpi=300)  #figure size and dpi
+    plt.figure(figsize=(0.75, 0.75), dpi=300)  #figure size and dpi
     fig, ax = plt.subplots()
     fig.patch.set_facecolor('black')
     labels = ['Non-Infected', 'Infected']
