@@ -59,8 +59,8 @@ def main():
               mime='text/csv'
             )
     
-        with open('malware_classifier.pkl', 'rb') as f:
-              model = joblib.load(f)
+    with open('malware_classifier.pkl', 'rb') as f:
+          model = joblib.load(f)
     
             # Make predictions
         predictions = model.predict(df)
