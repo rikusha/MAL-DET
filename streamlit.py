@@ -3,8 +3,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import joblib
 
-with open('malware_classifier.pkl', 'rb') as f:
-    model = joblib.load(f)
     
 # Set page configuration
 st.set_page_config(layout="wide")
@@ -62,7 +60,7 @@ def main():
             )
     
         with open('malware_classifier.pkl', 'rb') as f:
-        model = pickle.load(f)
+                model = joblib.load(f)
     
             # Make predictions
         predictions = model.predict(df)
