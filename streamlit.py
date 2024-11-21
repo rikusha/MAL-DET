@@ -75,7 +75,7 @@ def main():
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    print("        ")
+    print("   ")
 
 with col2:
     fig, ax = plt.subplots(figsize=(5, 5))  # Adjust figure size
@@ -93,4 +93,4 @@ with col2:
     st.pyplot(fig)
 
 with col3:
-    print("          ")
+    print("    ")
