@@ -53,7 +53,9 @@ with col1:
     sizes = [df['legitimate'].value_counts()[0], df['legitimate'].value_counts()[1]]
     ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, textprops=font)
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    st.markdown("<div style='text-align:center'>", unsafe_allow_html=True)
     st.pyplot(fig)
-
+    st.markdown("</div>", unsafe_allow_html=True)
+    
 with col2: 
     print("    ")
