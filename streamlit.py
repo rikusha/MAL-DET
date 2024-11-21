@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import pickle
 
-with open('RandomForest.pkl', 'rb') as f:
+with open('malware_classifier.pkl', 'rb') as f:
     model = pickle.load(f)
     
 # Set page configuration
@@ -42,7 +42,7 @@ with col2:
     st.header("Non-Infected Files")
     st.dataframe(df[df['legitimate'] == 0])
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 
 with col1:
     def main():
@@ -93,5 +93,3 @@ with col2:
     st.pyplot(fig)
     st.markdown("</div>", unsafe_allow_html=True)
 
-with col3: 
-    print("   ")
